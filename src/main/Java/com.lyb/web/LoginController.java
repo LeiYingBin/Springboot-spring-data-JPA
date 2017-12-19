@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/")
 public class LoginController {
 
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String ToLogin(ModelMap map){
         map.addAttribute("user",new User());
         map.addAttribute("action", "create");
         return "homepage";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String Login(@ModelAttribute(value = "user") User user, ModelMap map){
         if(user.getUserid()==null)
             System.out.println("id is null");
@@ -34,9 +34,14 @@ public class LoginController {
             return "homepage";
         else
             map.addAttribute("message","failure");
-            System.out.println("password or id is error");
+//            System.out.println("password or id is error");
         return "index";
         }
         return "index";
+    }
+
+    @RequestMapping(value = "/logout")
+    public String Logout(){
+        return "test";
     }
 }

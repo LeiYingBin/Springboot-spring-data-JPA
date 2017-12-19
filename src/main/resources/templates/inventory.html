@@ -73,9 +73,29 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <p>此系统由一个高大威猛，风流倜傥，人见人爱，花见花开，才高八斗，学富五车的见习程序员开发而成，如发现有什么做的不够好的，请留下居住地址，本人会带着四十米的长刀亲自登门，和你好好聊聊人生，谈谈理想。</p>
-                <hr>
-
+                <h2 class="sub-header">药品库存</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>药品编码</th>
+                            <th>药品名称</th>
+                            <th>药品价格</th>
+                            <th>药品类型</th>
+                            <th>药品库存</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="drug : ${invenlist}">
+                            <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
+                            <td th:text="${drug.drug_name}">eget</td>
+                            <td th:text="${drug.price}">nulla</td>
+                            <td th:text="${drug.type}">Class</td>
+                            <td th:text="${drug.number}">aptent</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
 

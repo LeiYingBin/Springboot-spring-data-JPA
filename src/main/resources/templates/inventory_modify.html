@@ -37,9 +37,9 @@
 <div class="container">
 
     <div class="blog-header">
+        <div class="jumbotron">
         <h1 class="blog-title">药品管理系统</h1>
-        <p class="lead blog-description">一个简单的药品管理小平台</p>
-        <hr style="font-size: 2px">
+        </div>
     </div>
 
     <div class="row">
@@ -73,16 +73,59 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <p>此系统由一个高大威猛，风流倜傥，人见人爱，花见花开，才高八斗，学富五车的见习程序员开发而成，如发现有什么做的不够好的，请留下居住地址，本人会带着四十米的长刀亲自登门，和你好好聊聊人生，谈谈理想。</p>
+                <h2 class="sub-header">药品出入库</h2>
+                <hr>
+                <div class="widget-content padded">
+                    <form action="/record/add_record" th:method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品编号:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_num" th:value="${newInventory.drug_num}" th:field="*{newInventory.drug_num}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品名称:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_name" th:value="${newInventory.drug_name}" th:field="*{newInventory.drug_name}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">价格:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="price" th:value="${newInventory.price}" th:field="*{newInventory.price}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品类型:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="text" th:value="${newInventory.type}" th:field="*{newInventory.type}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">出库/入库:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="restate" th:value="${newRecord.restate}" th:field="*{newRecord.restate}"   type="text">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">出入库时间:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" type="date" id="time" th:value="${newRecord.time}" th:field="{newRecord.time}"  >
+                            </div>
+                        </div>
+
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="提交"/>
+                        </div>
+                    </form>
+                </div>
+
                 <hr>
 
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
-
-
-
     </div><!-- /.row -->
-
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript

@@ -2,12 +2,11 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="drug_db@localhost" uuid="0ed42b10-47cc-476a-a09a-abf4c0926901">
-      <database-info product="MySQL" version="5.7.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+      <database-info product="MySQL" version="5.7.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <introspection-schemas>*:drug_db</introspection-schemas>
     </data-source>
