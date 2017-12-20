@@ -37,9 +37,9 @@
 <div class="container">
 
     <div class="blog-header">
-        <h1 class="blog-title">药品管理系统</h1>
-        <p class="lead blog-description">一个简单的药品管理小平台</p>
-        <hr style="font-size: 2px">
+        <div class="jumbotron">
+            <h1 class="blog-title">药品管理系统</h1>
+        </div>
     </div>
 
     <div class="row">
@@ -73,7 +73,39 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <p>此系统由一个高大威猛，风流倜傥，人见人爱，花见花开，才高八斗，学富五车的见习程序员开发而成，如发现有什么做的不够好的，请留下居住地址，本人会带着四十米的长刀亲自登门，和你好好聊聊人生，谈谈理想。</p>
+                <h2 class="sub-header">药品添加</h2>
+                <div class="widget-content padded">
+                    <input type="hidden" id="action" th:value="${action}">
+                    <form action="/drug/add_drug" th:method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品编号:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_num" th:value="${drug.drug_num}" th:field="*{newInventory.drug_num}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品名称:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_name" th:value="${drug.drug_name}" th:field="*{newInventory.drug_name}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">价格:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="price" th:value="${drug.price}" th:field="*{newInventory.price}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品类型:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="text" th:value="${drug.type}" th:field="*{newInventory.type}"  type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="提交"/>
+                        </div>
+                    </form>
+                </div>
                 <hr>
 
             </div><!-- /.blog-post -->

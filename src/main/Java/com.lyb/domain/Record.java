@@ -1,9 +1,9 @@
 package com.lyb.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -11,7 +11,7 @@ public class Record {
 
     @Id
     @GeneratedValue
-    private String serial_num;
+    private int serial_num;
 
     @Column
     private String drug_num;
@@ -25,14 +25,15 @@ public class Record {
     @Column
     private String restate;
 
-    @Column
-    private Date time;
+    @Temporal(TemporalType.DATE)
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private Date inventory_time;
 
-    public String getSerial_num() {
+    public int getSerial_num() {
         return serial_num;
     }
 
-    public void setSerial_num(String serial_num) {
+    public void setSerial_num(int serial_num) {
         this.serial_num = serial_num;
     }
 
@@ -68,11 +69,12 @@ public class Record {
         this.restate = restate;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getInventory_time() {
+        return inventory_time;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setInventory_time(Date inventory_time) {
+        this.inventory_time = inventory_time;
     }
+
 }

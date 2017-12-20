@@ -76,6 +76,7 @@
                 <h2 class="sub-header">药品出入库</h2>
                 <hr>
                 <div class="widget-content padded">
+                    <input type="hidden" id="action" th:value="${action}">
                     <form action="/record/add_record" th:method="post" class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-md-2">药品编号:</label>
@@ -104,15 +105,20 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">出库/入库:</label>
                             <div class="col-md-3">
-                                <input class="form-control" id="restate" th:value="${newRecord.restate}" th:field="*{newRecord.restate}"   type="text">
+                                <input class="form-control" id="restate" placeholder="0：出库，1：入库" th:value="${newRecord.restate}" th:field="*{newRecord.restate}"   type="text">
                             </div>
-
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">数量:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_amount" th:value="${newRecord.amount}" th:field="*{newRecord.amount}"   type="text">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">出入库时间:</label>
-                            <div class="col-md-3">
-                                <input class="form-control" type="date" id="time" th:value="${newRecord.time}" th:field="{newRecord.time}"  >
-                            </div>
+                            <!--<div class="col-md-3">-->
+                                <!--<input class="form-control" id="time"  type="date">-->
+                            <!--</div>-->
                         </div>
 
                         <div>
@@ -136,5 +142,16 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+    $(function () {
+        var action = document.getElementById("action").value;
+        if(action=="save"){
+
+            alert("保存成功");
+
+        }
+
+    });
+</script>
 </body>
 </html>

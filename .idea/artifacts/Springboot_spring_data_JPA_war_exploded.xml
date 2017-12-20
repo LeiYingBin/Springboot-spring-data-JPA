@@ -67,6 +67,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.0.RC4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.0.0.RC4" />
           <element id="library" level="project" name="Maven: com.h2database:h2:1.4.196" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.7" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-devtools:2.0.0.M4" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.0.0.M4" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.M4" />

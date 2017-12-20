@@ -37,9 +37,9 @@
 <div class="container">
 
     <div class="blog-header">
-        <h1 class="blog-title">药品管理系统</h1>
-        <p class="lead blog-description">一个简单的药品管理小平台</p>
-        <hr style="font-size: 2px">
+        <div class="jumbotron">
+            <h1 class="blog-title">药品管理系统</h1>
+        </div>
     </div>
 
     <div class="row">
@@ -75,6 +75,30 @@
             <div class="blog-post">
                 <h2 class="sub-header">药品出入库历史</h2>
                 <hr>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>业务流水号</th>
+                            <th>药品编码</th>
+                            <th>药品名称</th>
+                            <th>出/入库</th>
+                            <th>数量</th>
+                            <th>日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="record : ${recordList}">
+                            <td><a href="#" th:text="${record.serial_num}"></a></td>
+                            <td th:text="${record.drug_num}">eget</td>
+                            <td th:text="${record.drug_name}">nulla</td>
+                            <td th:text="${record.restate}">Class</td>
+                            <td th:text="${record.amount}">aptent</td>
+                            <td th:text="${#dates.format(record.inventory_time, 'yyyy/MM/dd')}">aptent</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->

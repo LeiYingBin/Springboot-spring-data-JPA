@@ -24,7 +24,7 @@ public class Drug {
     private String type;
 
     @Column
-    private int number;
+    private int amount;
 
     public String getSystemid() {
         return systemid;
@@ -66,11 +66,11 @@ public class Drug {
         this.type = type;
     }
 
-    public int getNumber() {
-        return number;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

@@ -108,6 +108,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.0.RC4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.0.0.RC4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.196" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-devtools:2.0.0.M4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.0.M4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.M4" level="project" />

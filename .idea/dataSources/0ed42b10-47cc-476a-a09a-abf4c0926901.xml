@@ -945,7 +945,7 @@
       <DataType>varchar(10)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="229" name="number">
+    <column id="237" parent="229" name="amount">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
@@ -958,8 +958,9 @@
     </key>
     <column id="239" parent="230" name="serial_num">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="240" parent="230" name="drug_num">
@@ -983,7 +984,7 @@
       <DataType>varchar(1)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="230" name="time">
+    <column id="244" parent="230" name="inventory_time">
       <Position>6</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>

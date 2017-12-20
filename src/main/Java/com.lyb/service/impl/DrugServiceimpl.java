@@ -16,7 +16,8 @@ public class DrugServiceimpl implements DrugService {
 
     @Override
     public String updateDrug(Drug drug) {
-        return null;
+        drugRepository.saveAndFlush(drug);
+        return "true";
     }
 
     @Override

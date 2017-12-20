@@ -21,19 +21,31 @@ public class RecordController {
     RecordService recordService;
 
     @Autowired
-    DrugController drugController;
+    DrugService drugService;
 
     @RequestMapping(method=RequestMethod.GET)
     public String Record(ModelMap map){
+        map.addAttribute("recordList",recordService.findAll());
         return "inventory_record";
     }
 
     @RequestMapping(value = "add_record",method = RequestMethod.POST)
     public String addRecord(@ModelAttribute(value = "newInventory") Drug drug, @ModelAttribute(value = "newRecord") Record record  , ModelMap map){
-        System.out.println(drug.getDrug_num());
+        Drug updatedrug = drugService.findById(drug.getDrug_num());
+        if(record.getRestate().equals("0"))
+            updatedrug.setAmount(updatedrug.getAmount()-record.getAmount());
+        else
+            updatedrug.setAmount(updatedrug.getAmount()+record.getAmount());
+//        drugService.updateDrug(updatedrug);
+        record.setSerial_num(100002);
+        record.setDrug_num(updatedrug.getDrug_num());
+        record.setDrug_name(updatedrug.getDrug_name());
+        record.setInventory_time(new Date());
+        System.out.println(record.getInventory_time());
+        recordService.insertByRecord(record);
         map.addAttribute("newRecord",record);
         map.addAttribute("newInventory",drug);
-        map.addAttribute("save","true");
+        map.addAttribute("action","save");
         return "inventory_modify";
     }
 

@@ -36,7 +36,13 @@ public class DrugController {
     }
 
     @RequestMapping(value="/add_drug",method = RequestMethod.GET)
-    public String addDrug(){
+    public String addDrug(ModelMap map){
+        map.addAttribute("drug",new Drug());
+        return "drug_add";
+    }
+
+    @RequestMapping(value="/add_drug",method = RequestMethod.POST)
+    public String saveDrug(){
         return "drug_add";
     }
 
