@@ -3,6 +3,7 @@ package com.lyb.service.impl;
 import com.lyb.domain.Drug;
 import com.lyb.domain.DrugRepository;
 import com.lyb.service.DrugService;
+import org.hibernate.annotations.SQLInsert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class DrugServiceimpl implements DrugService {
     }
 
     @Override
-    public String addDrug(Drug drug) {
+    public Drug addDrug(Drug drug) {
         drugRepository.save(drug);
         return null;
     }

@@ -918,7 +918,7 @@
     <table id="231" parent="2" name="user">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="232" parent="229" name="systemid">
+    <column id="232" parent="229" name="id">
       <Position>1</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
@@ -953,10 +953,10 @@
     </column>
     <key id="238" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>systemid</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="230" name="serial_num">
+    <column id="239" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
@@ -991,7 +991,7 @@
     </column>
     <key id="245" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>serial_num</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="246" parent="231" name="userid">

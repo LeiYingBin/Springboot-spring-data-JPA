@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface RecordService {
 
-    Record findById(int id);
+    Record findById(Long id);
     List<Record> findAll();
-    Record insertByRecord(Record record);
+    Record saveRecord(Record record);
 }

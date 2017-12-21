@@ -30,20 +30,19 @@ public class RecordController {
     }
 
     @RequestMapping(value = "add_record",method = RequestMethod.POST)
-    public String addRecord(@ModelAttribute(value = "newInventory") Drug drug, @ModelAttribute(value = "newRecord") Record record  , ModelMap map){
+    public String addRecord(@ModelAttribute(value = "newInventory") Drug drug, @ModelAttribute Record newRecord  , ModelMap map){
         Drug updatedrug = drugService.findById(drug.getDrug_num());
-        if(record.getRestate().equals("0"))
-            updatedrug.setAmount(updatedrug.getAmount()-record.getAmount());
+        if(newRecord.getRestate().equals("0"))
+            updatedrug.setAmount(updatedrug.getAmount()-newRecord.getAmount());
         else
-            updatedrug.setAmount(updatedrug.getAmount()+record.getAmount());
-//        drugService.updateDrug(updatedrug);
-        record.setSerial_num(100002);
-        record.setDrug_num(updatedrug.getDrug_num());
-        record.setDrug_name(updatedrug.getDrug_name());
-        record.setInventory_time(new Date());
-        System.out.println(record.getInventory_time());
-        recordService.insertByRecord(record);
-        map.addAttribute("newRecord",record);
+            updatedrug.setAmount(updatedrug.getAmount()+newRecord.getAmount());
+        drugService.updateDrug(updatedrug);
+        newRecord.setDrug_num(updatedrug.getDrug_num());
+        newRecord.setDrug_name(updatedrug.getDrug_name());
+        if(newRecord.getInventory_time()==null)
+        newRecord.setInventory_time(new Date());
+        recordService.saveRecord(newRecord);
+        map.addAttribute("newRecord",newRecord);
         map.addAttribute("newInventory",drug);
         map.addAttribute("action","save");
         return "inventory_modify";

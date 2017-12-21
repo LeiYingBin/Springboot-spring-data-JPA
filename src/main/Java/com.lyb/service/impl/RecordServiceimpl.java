@@ -1,6 +1,7 @@
 package com.lyb.service.impl;
 
 import com.lyb.domain.Record;
+import com.lyb.domain.RecordCRepository;
 import com.lyb.domain.RecordRepository;
 import com.lyb.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +12,22 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RepositoryDefinition(domainClass = Record.class, idClass = Integer.class)
 public class RecordServiceimpl implements RecordService {
 
     @Autowired
     RecordRepository recordRepository;
 
+    @Autowired
+    RecordCRepository recordCRepository;
+
     @Override
-    public Record findById(int id) {
+    public Record findById(Long id) {
         return recordRepository.findById(id).get();
     }
 
     @Override
-    public Record insertByRecord(Record record) {
-        return  recordRepository.save(record);
+    public Record saveRecord(Record record) {
+        return  recordCRepository.save(record);
     }
 
     @Override

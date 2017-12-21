@@ -116,13 +116,13 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">出入库时间:</label>
-                            <!--<div class="col-md-3">-->
-                                <!--<input class="form-control" id="time"  type="date">-->
-                            <!--</div>-->
+                            <div class="col-md-3">
+                                <input class="form-control" id="time"  type="date">
+                            </div>
                         </div>
 
                         <div>
-                            <input class="btn btn-primary" type="submit" value="提交"/>
+                            <input class="btn btn-primary" id="submit" type="submit" value="提交"/>
                         </div>
                     </form>
                 </div>
@@ -146,7 +146,7 @@
     $(function () {
         var action = document.getElementById("action").value;
         if(action=="save"){
-
+            $("#submit").attr("disabled", true);
             alert("保存成功");
 
         }

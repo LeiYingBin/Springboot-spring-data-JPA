@@ -7,9 +7,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Drug {
+
     @Id
     @GeneratedValue
-    private String systemid;
+    private String id;
 
     @Column
     private String drug_num;
@@ -26,12 +27,12 @@ public class Drug {
     @Column
     private int amount;
 
-    public String getSystemid() {
-        return systemid;
+    public String getId() {
+        return id;
     }
 
-    public void setSystemid(String systemid) {
-        this.systemid = systemid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDrug_num() {

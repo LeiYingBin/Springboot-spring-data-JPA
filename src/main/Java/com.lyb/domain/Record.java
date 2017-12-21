@@ -10,31 +10,31 @@ import java.util.Date;
 public class Record {
 
     @Id
-    @GeneratedValue
-    private int serial_num;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column
+    @Column(name = "drug_num")
     private String drug_num;
 
-    @Column
+    @Column(name = "drug_name")
     private String drug_name;
 
-    @Column
+    @Column(name = "amount")
     private int amount ;
 
-    @Column
+    @Column(name = "restate")
     private String restate;
 
     @Temporal(TemporalType.DATE)
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date inventory_time;
 
-    public int getSerial_num() {
-        return serial_num;
+    public Long getId() {
+        return id;
     }
 
-    public void setSerial_num(int serial_num) {
-        this.serial_num = serial_num;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDrug_num() {

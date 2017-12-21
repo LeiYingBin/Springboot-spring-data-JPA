@@ -42,7 +42,8 @@ public class DrugController {
     }
 
     @RequestMapping(value="/add_drug",method = RequestMethod.POST)
-    public String saveDrug(){
+    public String saveDrug(@ModelAttribute(value = "drug") Drug drug , ModelMap map ){
+        drugService.addDrug(drug);
         return "drug_add";
     }
 
