@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+    <head>
+
+        <title>logout</title>
+    </head>
+
+    <body>
+
+    <p>logout</p>
+    <!--/*@thymesVar id="userid" type="java.lang.String"*/-->
+   <!-- <p th:text="${user.userid}"></p>
+    <p th:text=""></p>-->
+    </body>
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function() {
+                return { visible: false }
+            }
+        })
+    </script>
+</html>

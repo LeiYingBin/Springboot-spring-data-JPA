@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <title></title>
+</head>
+<body>
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div style="font-family: 微软雅黑; font-size: 50px;margin-top: 40px;" >药品管理系统</div>
+        <input type="hidden" id="message" name="message" th:value="${message}"/>
+
+        <div class="container-fluid" style="font-size: 20px;">
+            <div class="row-fluid">
+                <div class="span12">
+                    <form class="form-horizontal" action="/login" th:method="post">
+                        <div class="control-group">
+                            <label class="control-label" for="userid">用户</label>
+                            <div class="controls">
+                                <input id="userid" type="text" th:value="${user.userid}" th:field="*{user.userid}" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">密码</label>
+                            <div class="controls">
+                                <input id="password" type="password" th:values="${user.password}" th:field="*{user.password}" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox"><input type="checkbox" /> Remember me</label> <button type="submit" class="btn">登陆</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+</body>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+   $(function() {
+        var message = document.getElementById("message");
+        if(message.value=="failure")
+        alert("账号或密码错误！！");
+   });
+</script>
+</html>

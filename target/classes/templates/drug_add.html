@@ -54,8 +54,8 @@
             <div class="sidebar-module">
                 <h4>出入库管理</h4>
                 <ol class="list-unstyled">
-                    <li><a href="/drug">药品库存</a></li>
-                    <li><a href="/drug/modify_inventory">药品出入库</a></li>
+                    <li><a href="/drug_inventory">药品库存</a></li>
+                    <li><a href="/drugi_nventory/add_inventory">药品出入库</a></li>
                     <li><a href="/record">出入库历史</a></li>
                 </ol>
             </div>
@@ -65,7 +65,7 @@
                     <li><a href="/drug/add_drug">添加药品</a></li>
                     <li><a href="/drug/delete_drug">删除药品</a></li>
                     <hr>
-                    <li><a href="/logout">退出系统</a></li>
+                    <li><a href="#">退出系统</a></li>
                 </ol>
             </div>
         </div><!-- /.blog-sidebar -->
@@ -73,44 +73,41 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <h2 class="sub-header">药品删除</h2>
-                <hr>
-                <div>
-                    <form action="/drug/drug_query" th:method="get" class="form-horizontal">
-                        <div class="col-md-5">
-                            <span>药品名称：</span><input id="name"  class="form-control" placeholder="药品名称..." />
+                <h2 class="sub-header">药品添加</h2>
+                <div class="widget-content padded">
+                    <input type="hidden" id="action" th:value="${action}">
+                    <form action="/drug/add_drug" th:method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品编号:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_num" th:value="${drug.drug_num}" th:field="*{drug.drug_num}"  type="text">
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <span>药品编号：</span><input id="number" class="form-control" placeholder="药品编号..." />
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品名称:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_name" th:value="${drug.drug_name}" th:field="*{drug.drug_name}"  type="text">
+                            </div>
                         </div>
-                        <hr>
-                        <input class="btn btn-primary" type="submit" value="查询"/>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">价格:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="price" th:value="${drug.price}" th:field="*{drug.price}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品类型:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="type" th:value="${drug.type}" th:field="*{drug.type}"  type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="提交"/>
+                        </div>
                     </form>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>药品编码</th>
-                            <th>药品名称</th>
-                            <th>药品价格</th>
-                            <th>药品类型</th>
-                            <th>药品库存</th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="drug : ${drugList}">
-                            <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
-                            <td th:text="${drug.drug_name}">eget</td>
-                            <td th:text="${drug.price}">nulla</td>
-                            <td th:text="${drug.type}">Class</td>
-                            <td th:text="${drug.amount}">aptent</td>
-                            <td >删除</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <hr>
+
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
 

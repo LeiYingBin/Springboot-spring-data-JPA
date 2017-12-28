@@ -38,7 +38,7 @@
 
     <div class="blog-header">
         <div class="jumbotron">
-            <h1 class="blog-title">药品管理系统</h1>
+        <h1 class="blog-title">药品管理系统</h1>
         </div>
     </div>
 
@@ -73,51 +73,65 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <h2 class="sub-header">药品删除</h2>
+                <h2 class="sub-header">药品出入库</h2>
                 <hr>
-                <div>
-                    <form action="/drug/drug_query" th:method="get" class="form-horizontal">
-                        <div class="col-md-5">
-                            <span>药品名称：</span><input id="name"  class="form-control" placeholder="药品名称..." />
+                <div class="widget-content padded">
+                    <input type="hidden" id="action" th:value="${action}">
+                    <form action="/record/add_record" th:method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品编号:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_num" th:value="${newInventory.drug_num}" th:field="*{newInventory.drug_num}"  type="text">
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <span>药品编号：</span><input id="number" class="form-control" placeholder="药品编号..." />
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品名称:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_name" th:value="${newInventory.drug_name}" th:field="*{newInventory.drug_name}"  type="text">
+                            </div>
                         </div>
-                        <hr>
-                        <input class="btn btn-primary" type="submit" value="查询"/>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">价格:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="price" th:value="${newInventory.price}" th:field="*{newInventory.price}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">药品类型:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="text" th:value="${newInventory.type}" th:field="*{newInventory.type}"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">出库/入库:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="restate" placeholder="0：出库，1：入库" th:value="${newRecord.restate}" th:field="*{newRecord.restate}"   type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">数量:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="drug_amount" th:value="${newRecord.amount}" th:field="*{newRecord.amount}"   type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">出入库时间:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" id="time"  type="date">
+                            </div>
+                        </div>
+
+                        <div>
+                            <input class="btn btn-primary" id="submit" type="submit" value="提交"/>
+                        </div>
                     </form>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>药品编码</th>
-                            <th>药品名称</th>
-                            <th>药品价格</th>
-                            <th>药品类型</th>
-                            <th>药品库存</th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="drug : ${drugList}">
-                            <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
-                            <td th:text="${drug.drug_name}">eget</td>
-                            <td th:text="${drug.price}">nulla</td>
-                            <td th:text="${drug.type}">Class</td>
-                            <td th:text="${drug.amount}">aptent</td>
-                            <td >删除</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <hr>
+
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
-
-
-
     </div><!-- /.row -->
-
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
@@ -128,5 +142,16 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+    $(function () {
+        var action = document.getElementById("action").value;
+        if(action=="save"){
+            $("#submit").attr("disabled", true);
+            alert("保存成功");
+
+        }
+
+    });
+</script>
 </body>
 </html>

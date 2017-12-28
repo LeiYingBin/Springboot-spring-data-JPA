@@ -73,44 +73,9 @@
         <div class="col-sm-9 blog-main">
 
             <div class="blog-post">
-                <h2 class="sub-header">药品删除</h2>
+                <p>此系统由一个高大威猛，风流倜傥，人见人爱，花见花开，才高八斗，学富五车的见习程序员开发而成，如发现有什么做的不够好的，请留下居住地址，本人会带着四十米的长刀亲自登门，和你好好聊聊人生，谈谈理想。</p>
                 <hr>
-                <div>
-                    <form action="/drug/drug_query" th:method="get" class="form-horizontal">
-                        <div class="col-md-5">
-                            <span>药品名称：</span><input id="name"  class="form-control" placeholder="药品名称..." />
-                        </div>
-                        <div class="col-md-5">
-                            <span>药品编号：</span><input id="number" class="form-control" placeholder="药品编号..." />
-                        </div>
-                        <hr>
-                        <input class="btn btn-primary" type="submit" value="查询"/>
-                    </form>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>药品编码</th>
-                            <th>药品名称</th>
-                            <th>药品价格</th>
-                            <th>药品类型</th>
-                            <th>药品库存</th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="drug : ${drugList}">
-                            <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
-                            <td th:text="${drug.drug_name}">eget</td>
-                            <td th:text="${drug.price}">nulla</td>
-                            <td th:text="${drug.type}">Class</td>
-                            <td th:text="${drug.amount}">aptent</td>
-                            <td >删除</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
 
