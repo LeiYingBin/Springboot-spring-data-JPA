@@ -951,75 +951,81 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="238" parent="229" name="drug_drug_num_uindex">
+    <column id="238" parent="229" name="drug_state">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="239" parent="229" name="drug_drug_num_uindex">
       <ColNames>drug_num</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="239" parent="229" name="PRIMARY">
+    <key id="240" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="240" parent="229" name="drug_drug_num_uindex">
+    <key id="241" parent="229" name="drug_drug_num_uindex">
       <ColNames>drug_num</ColNames>
       <UnderlyingIndexName>drug_drug_num_uindex</UnderlyingIndexName>
     </key>
-    <column id="241" parent="230" name="id">
+    <column id="242" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="230" name="drug_num">
+    <column id="243" parent="230" name="drug_num">
       <Position>2</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="230" name="drug_name">
+    <column id="244" parent="230" name="drug_name">
       <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="230" name="amount">
+    <column id="245" parent="230" name="amount">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="230" name="restate">
+    <column id="246" parent="230" name="restate">
       <Position>5</Position>
       <DataType>varchar(1)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="230" name="inventory_time">
+    <column id="247" parent="230" name="inventory_time">
       <Position>6</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="247" parent="230" name="PRIMARY">
+    <key id="248" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="248" parent="231" name="userid">
+    <column id="249" parent="231" name="userid">
       <Position>1</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="231" name="username">
+    <column id="250" parent="231" name="username">
       <Position>2</Position>
       <DataType>varchar(10)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="231" name="password">
+    <column id="251" parent="231" name="password">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="231" name="PRIMARY">
+    <key id="252" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>

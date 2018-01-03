@@ -63,7 +63,7 @@
                 <h4>药品管理</h4>
                 <ol class="list-unstyled">
                     <li><a href="/drug/add_drug">添加药品</a></li>
-                    <li><a href="/drug/delete_drug">删除药品</a></li>
+                    <li><a href="/drug/drug_query">删除药品</a></li>
                     <hr>
                     <li><a href="/logout">退出系统</a></li>
                 </ol>
@@ -86,7 +86,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="drug : ${invenlist}">
+                         <tr th:each="drug : ${invenlist}">
                             <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
                             <td th:text="${drug.drug_name}">eget</td>
                             <td th:text="${drug.price}">nulla</td>

@@ -24,6 +24,9 @@ public class Drug {
     @Column
     private int amount;
 
+    @Column
+    private int drug_state;
+
     public String getId() {
         return id;
     }
@@ -71,4 +74,8 @@ public class Drug {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    public int getDrug_state() { return drug_state;    }
+
+    public void setDrug_state(int drug_state) {  this.drug_state = drug_state;    }
 }

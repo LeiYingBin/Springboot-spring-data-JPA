@@ -5,6 +5,7 @@ import com.lyb.domain.DrugRepository;
 import com.lyb.service.DrugService;
 import org.hibernate.annotations.SQLInsert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +31,15 @@ public class DrugServiceimpl implements DrugService {
     }
 
     @Override
+    public String deleteDrug(String drug_num) {
+        Drug drug = drugRepository.findById(drug_num).get();
+        drug.setDrug_state(1);
+        updateDrug(drug);
+        return "true";
+    }
+
+    @Override
+    @Query("select drug from drug drug where drug_state=0")
     public List<Drug> findAll() {
         return drugRepository.findAll();
     }

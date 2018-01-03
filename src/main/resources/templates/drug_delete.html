@@ -30,6 +30,27 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        function abc(drug_num) {
+            var flag = confirm("是否删除此药品"+drug_num);
+            if(flag=true){
+                $.ajax({
+                    type:"post",
+                    url:"/drug/delete_drug",
+                    data:{"drug_num":drug_num},
+                    success:function (data) {
+                        alert("data="+data);
+                        if(data=="true"){
+                            alert("成功删除");
+                            document.location.reload();//当前页面
+                        }
+                        else
+                            alert("出错，请重试");
+                    }
+                });
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -63,7 +84,7 @@
                 <h4>药品管理</h4>
                 <ol class="list-unstyled">
                     <li><a href="/drug/add_drug">添加药品</a></li>
-                    <li><a href="/drug/delete_drug">删除药品</a></li>
+                    <li><a href="/drug/drug_query">删除药品</a></li>
                     <hr>
                     <li><a href="/logout">退出系统</a></li>
                 </ol>
@@ -78,10 +99,10 @@
                 <div>
                     <form action="/drug/drug_query" th:method="get" class="form-horizontal">
                         <div class="col-md-5">
-                            <span>药品名称：</span><input id="name"  class="form-control" placeholder="药品名称..." />
+                            <span>药品名称：</span><input id="name" th:field="${drug.drug_name}"  class="form-control" placeholder="药品名称..." />
                         </div>
                         <div class="col-md-5">
-                            <span>药品编号：</span><input id="number" class="form-control" placeholder="药品编号..." />
+                            <span>药品编号：</span><input id="number" th:field="${drug.drug_num}" class="form-control" placeholder="药品编号..." />
                         </div>
                         <hr>
                         <input class="btn btn-primary" type="submit" value="查询"/>
@@ -101,12 +122,12 @@
                         </thead>
                         <tbody>
                         <tr th:each="drug : ${drugList}">
-                            <td><a th:href="@{/drug/modify_inventory/{drug_Num}(drug_Num=${drug.drug_num})}" th:text="${drug.drug_num}"></a></td>
+                            <td th:text="${drug.drug_num}"></td>
                             <td th:text="${drug.drug_name}">eget</td>
                             <td th:text="${drug.price}">nulla</td>
                             <td th:text="${drug.type}">Class</td>
                             <td th:text="${drug.amount}">aptent</td>
-                            <td >删除</td>
+                            <td ><button  type="button" th:onclick="'javascript:abc(\''+${drug.drug_num}+'\')'">删除</button></td>
                         </tr>
                         </tbody>
                     </table>
@@ -128,5 +149,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
+
 </html>

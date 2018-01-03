@@ -8,10 +8,9 @@ import com.lyb.service.DrugService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.management.Query;
 
 @Controller
 @RequestMapping(value = "/drug")
@@ -23,16 +22,16 @@ public class DrugController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getInventoryList(ModelMap map){
-        map.addAttribute("invenlist",drugService.findAll());
+        map.addAttribute("invenlist",drugQRepository.findAll());
         return "inventory";
     }
 
     @RequestMapping(value = "/drug_query",method = RequestMethod.GET)
-    public String queryDrug(@RequestParam String name, @ModelAttribute String number, ModelMap map){
-        System.out.println("name="+name);
-        System.out.println("number="+number);
-        map.addAttribute("drugList",drugQRepository.findByNumberOrName(number,name));
-        return "Drug_delete";
+    public String queryDrug(@ModelAttribute(value = "drug") Drug drug, ModelMap map){
+        System.out.println("name="+drug.getDrug_name());
+        System.out.println("number="+drug.getDrug_num());
+        map.addAttribute("drugList",drugQRepository.findByNumberOrName(drug.getDrug_num(),drug.getDrug_name()));
+        return "drug_delete";
     }
 
     @RequestMapping(value = "/modify_inventory/{drug_Num}",method = RequestMethod.GET)
@@ -62,9 +61,12 @@ public class DrugController {
         return "drug_add";
     }
 
-    @RequestMapping(value="/delete_drug",method = RequestMethod.GET)
-    public String deleteDrug(){
-        return "drug_delete";
+
+    @RequestMapping(value="/delete_drug",method = RequestMethod.POST)
+    public @ResponseBody String deleteDrug2(ModelMap map,String drug_num){
+        drugService.deleteDrug(drug_num);
+        map.addAttribute("flag",drugService.deleteDrug(drug_num));
+        return "true";
     }
 
 }
